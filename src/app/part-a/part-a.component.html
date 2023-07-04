@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-6">
+            <form #myForm="ngForm"  >
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="firstName" placeholder='jayvant '>First Name</label>
+                        <input type="text" class="form-control" id="firstName"  ngModel  name="firstName" >
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName"  ngModel name="lastName" >
+                    </div>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="contactWith" class="d-block">How should we contact you?</label>
+                        <select class="w-100 custom-drop" rows="4" [(ngModel)]="selectedValue"  name="choseOption">
+                        <option value="choose" selected class="d-none">Choose Option</option>
+                        <option value="viaphone" >Phone</option>
+                        <option value="viaemail" >Email</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                   <ng-container *ngIf="selectedValue == 'viaphone'">
+                        <div class="form-group">
+                            <label for="phoneNum">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNum" name="phoneNum" >
+                        </div>
+                   </ng-container>
+                   <ng-container *ngIf="selectedValue == 'viaemail' ">
+                    <div class="form-group">
+                        <label for="emailId">Email Address</label>
+                        <input type="text" class="form-control" id="emailId" name="emailId" >
+                    </div>
+               </ng-container>
+                </div>
+             </div>
+            </form>
+        </div>
+    </div>
+</div>
+

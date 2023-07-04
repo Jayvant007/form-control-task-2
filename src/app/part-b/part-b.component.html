@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-6">
+            <form #myForm="ngForm"  >
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="firstName" placeholder="jay">First Name</label>
+                        <input type="text" class="form-control" id="firstName"  ngModel  name="firstName" >
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName"  ngModel name="lastName" >
+                    </div>
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="contactWith" class="d-block">How should we contact you?</label>
+
+                        <input type="radio" name="contactUs" id="phone-ra" class="ra-custom mr-2" value="viaphone" [(ngModel)]="selectedValue">
+                        <label for="phone-ra" class="mr-5">Phone</label>
+                        <input type="radio" name="contactUs" id="email-ra" class="ra-custom mr-2" value="viaemail" [(ngModel)]="selectedValue">
+                        <label for="email-ra">Email</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                   <ng-container *ngIf="selectedValue == 'viaphone'">
+                        <div class="form-group">
+                            <label for="phoneNum">Phone Number</label>
+                            <input type="text" class="form-control" id="phoneNum" name="phoneNum" >
+                        </div>
+                   </ng-container>
+                   <ng-container *ngIf="selectedValue == 'viaemail' ">
+                    <div class="form-group">
+                        <label for="emailId">Email Address</label>
+                        <input type="text" class="form-control" id="emailId" name="emailId" >
+                    </div>
+               </ng-container>
+                </div>
+             </div>
+            </form>
+        </div>
+    </div>
+</div>
+
